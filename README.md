@@ -1,5 +1,8 @@
-前置作業
-- ```openssl req -new -newkey rsa:4096 -days 3650 -nodes -x509 -subj "/C=AU/ST=Some-State/O=Internet Widgits Pty Ltd" -keyout ./rsa/id_rsa -out ./rsa/id_rsa.pub```
+# sandcats-client
 
-- ```cat ./rsa/id_rsa ./rsa/id_rsa.pub > ./rsa/private_combined```
+Script for register sandcats.io cert or update
 
+### How to use
+- change `config.json` file to fit your server
+- run `node run.js init` for init sandcats config
+- run `node run.js update` for update HTTPS cert 

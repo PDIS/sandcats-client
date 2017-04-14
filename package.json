@@ -2,7 +2,7 @@
     "name": "sandcats-client",
     "version": "1.0.0",
     "description": "script for register sandcats doamin & daemon for update certificate",
-    "main": "update.js",
+    "main": "run.js",
     "repository": "https://github.com/pdis/sandcats-client",
     "author": "Mark Dai",
     "license": "MIT",
