@@ -7,6 +7,7 @@
     "author": "Mark Dai",
     "license": "MIT",
     "dependencies": {
+        "node-forge": "^0.7.1",
         "request": "^2.81.0",
         "ssh-keygen": "^0.4.1"
     }

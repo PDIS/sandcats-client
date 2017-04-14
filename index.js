@@ -2,7 +2,9 @@ var request = require('request');
 var config = require('./config.json');
 var keygen = require('ssh-keygen');
 var fs = require('fs');
+var forge = require('node-forge');
 var exec = require('child_process').execSync;
+var three_days = 1000 * 60 * 60 * 24 * 3
 
 function RSA_KEY_GENERATION() {
     keygen_cmd = 'openssl req -new -newkey rsa:4096 -days 3650 ' +
@@ -89,7 +91,30 @@ function SAVE_HTTPS_CERT_FILE(certJSON) {
     console.log("GET CERTIFICATE!!")
 }
 
-// RSA_KEY_GENERATION()
-// REGISTER_SANDCATS_DOMAIN()
-CSR_FILE_GENERATION()
-GET_SANDCATS_CERT()
+action = process.argv[2]
+
+switch (action) {
+
+    case 'init':
+        RSA_KEY_GENERATION()
+        REGISTER_SANDCATS_DOMAIN()
+        CSR_FILE_GENERATION()
+        GET_SANDCATS_CERT()
+        break
+
+    case 'update':
+        cert = fs.readFileSync(config.path_https_crt)
+        left_time = forge.pki.certificateFromPem(cert).validity.notAfter - new Date()
+        if (left_time < three_days) {
+            CSR_FILE_GENERATION()
+            GET_SANDCATS_CERT()
+        } else {
+            console.log("Is more than three days away")
+        }
+        break
+
+    default:
+        console.log(" init      - Generate new RSA key pair for register sandcats domain, and get HTTPS certificate ")
+        console.log(" update    - Update HTTPS certificate ")
+
+}
