@@ -1,0 +1,13 @@
+{
+    "name": "sandcats-client",
+    "version": "1.0.0",
+    "description": "script for register sandcats doamin & daemon for update certificate",
+    "main": "update.js",
+    "repository": "https://github.com/pdis/sandcats-client",
+    "author": "Mark Dai",
+    "license": "MIT",
+    "dependencies": {
+        "request": "^2.81.0",
+        "ssh-keygen": "^0.4.1"
+    }
+}

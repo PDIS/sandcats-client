@@ -1,0 +1,9 @@
+{
+    "domain_name": "mark-last-test",
+    "domain_contact_email": "mark19891107@gmail.com",
+    "path_id_rsa": "id_rsa",
+    "path_id_rsa_pub": "id_rsa.pub",
+    "path_private_combine": "id_rsa.private_combined",
+    "path_https_crt": "ssl.crt",
+    "path_https_key": "ssl.key"
+}
